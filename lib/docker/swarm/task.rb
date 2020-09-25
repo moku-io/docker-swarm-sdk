@@ -38,6 +38,10 @@ class Docker::Swarm::Task
     return DateTime.parse(@hash.first['CreatedAt'])
   end
 
+  def slot
+    @hash['Slot']
+  end
+
   def status
     @hash['Status']['State'].to_sym
   end
