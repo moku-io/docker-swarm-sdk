@@ -99,6 +99,9 @@ class Docker::Swarm::Swarm
       items << Swarm::Task.new(self, hash)
     end
     return items
+  # Rescue case where no tasks could be found (API returns 404)
+  rescue Excon::Error::NotFound
+    return []
   end
 
   def leave(node, force = false)
