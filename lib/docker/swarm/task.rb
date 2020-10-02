@@ -58,6 +58,10 @@ class Docker::Swarm::Task
     @hash['Status']['Message']
   end
 
+  def version_index
+    @hash['Version']['Index']
+  end
+
   def networks
     all_networks = @swarm.networks
     nets = []
